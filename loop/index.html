@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While Loop Example</title>
+</head>
+<body>
+    <h1>While Loop Example</h1>
+    <button onclick="startLoop()">Start Loop</button>
+    <ul id="numberList"></ul>
+
+    <script>
+        function startLoop() {
+            let numbers = [];
+            let input;
+
+            // While loop to keep asking for a number until a number greater than 10 is entered
+            while (true) {
+                input = prompt("Enter a number greater than 10:");
+
+                // Convert input to a number
+                let number = parseInt(input);
+
+                // Check if the entered number is greater than 10
+                if (number > 10) {
+                    numbers.push(number);
+                    break;
+                } else if (!isNaN(number)) {
+                    numbers.push(number);
+                }
+            }
+
+            // Get the ul element to display the numbers
+            const numberList = document.getElementById('numberList');
+            numberList.innerHTML = "";
+
+            // Display the numbers in the ul element
+            for (let i = 0; i < numbers.length; i++) {
+                const li = document.createElement('li');
+                li.textContent = numbers[i];
+                numberList.appendChild(li);
+            }
+        }
+    </script>
+</body>
+</html>
